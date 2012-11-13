@@ -1,9 +1,27 @@
 package mailbox;
 
+import static javax.persistence.CascadeType.ALL;
+
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+import directory.FinalUser;
+
+
 public class MailBox extends Box implements IMailBox {
 	
+	private FinalUser user;
 	
 	
+@OneToOne(cascade = ALL, mappedBy = "mailbox")
+@JoinColumn(name = "finaluser_id")
+	public FinalUser getUser() {
+		return user;
+	}
+
+	public void setUser(FinalUser user) {
+		this.user = user;
+	}
 
 	@Override
 	public void deleteAMessage(Message msg) {

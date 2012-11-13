@@ -10,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import mailbox.MailBox;
-
+//test
 @Entity
 public class FinalUser {
 

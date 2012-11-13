@@ -1,4 +1,4 @@
-package Directory;
+package directory;
 
 public interface IUserDirectory {
 

@@ -1,4 +1,4 @@
-package MailBox;
+package mailbox;
 
 public class MailBox extends Box implements IMailBox {
 	

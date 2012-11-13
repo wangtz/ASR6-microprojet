@@ -1,4 +1,4 @@
-package MailBox;
+package mailbox;
 
 import java.util.ArrayList;
 

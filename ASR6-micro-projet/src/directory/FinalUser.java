@@ -1,6 +1,6 @@
-package Directory;
+package directory;
 
-import MailBox.MailBox;
+import mailbox.MailBox;
 
 public class FinalUser {
 

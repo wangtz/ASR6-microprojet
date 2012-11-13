@@ -1,6 +1,6 @@
-package MailBox;
+package mailbox;
 
-import Directory.FinalUser;
+import directory.FinalUser;
 
 public class MailBoxManager implements IMailBoxManager {
 

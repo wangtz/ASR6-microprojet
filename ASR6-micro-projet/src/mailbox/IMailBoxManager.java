@@ -5,6 +5,7 @@ import javax.ejb.Remote;
 import directory.FinalUser;
 
 
+
 @Remote public interface IMailBoxManager {
 
 	

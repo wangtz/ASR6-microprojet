@@ -8,11 +8,11 @@ import javax.persistence.OneToOne;
 
 
 @Entity
-public class MailBoxentity {
+public class MailBoxentity extends Boxentity{
    private Userentity user;
    
-   @OneToOne(cascade = ALL, mappedBy = "mailboxentity")
-   @JoinColumn(name = "userentity_id")
+   @OneToOne(cascade = ALL, mappedBy = "mailbox")
+   @JoinColumn(name = "userentity")
    	public Userentity getUser() {
    		return user;
    	}

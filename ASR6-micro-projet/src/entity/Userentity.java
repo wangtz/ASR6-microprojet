@@ -34,8 +34,8 @@ public class Userentity {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	@OneToOne(cascade = ALL, mappedBy = "userentity")
-	@JoinColumn(name = "rightentity_id")
+	@OneToOne(cascade = ALL)// mappedBy = "user"
+	@JoinColumn(name = "newsgrouprightentity")
 	public NewsGroupRightentity getRight() {
 		return right;
 	}
@@ -44,8 +44,8 @@ public class Userentity {
 		this.right = right;
 	}
 
-	@OneToOne(cascade = ALL, mappedBy = "userentity")
-	@JoinColumn(name = "mailboxentity_id")
+	@OneToOne(cascade = ALL)//mappedBy = "user"
+	@JoinColumn(name = "mailboxentity")
 	public MailBoxentity getMailbox() {
 		return mailbox;
 	}

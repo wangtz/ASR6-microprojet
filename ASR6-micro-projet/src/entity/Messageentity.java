@@ -78,7 +78,7 @@ public class Messageentity {
     	}
 
     	@ManyToOne
-    	@JoinColumn(name="boxentity_id")
+    	@JoinColumn(name="boxentity")
     	public Boxentity getBox() {
     		return box;
     	}

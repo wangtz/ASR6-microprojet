@@ -38,8 +38,8 @@ public class NewsGroupRightentity {
 		this.writeNewsGroup = writeNewsGroup;
 	}
 	
-    @OneToOne(cascade = ALL, mappedBy = "newsgrouprightentity")
-	@JoinColumn(name = "userentity_id")
+    @OneToOne(cascade = ALL, mappedBy = "right")
+	@JoinColumn(name = "userentity")
     public Userentity getUser() {
 		return user;
 	}

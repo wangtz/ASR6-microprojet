@@ -39,7 +39,7 @@ public class Boxentity {
 	public void setBoxName(String boxName) {
 		this.boxName = boxName;
 	}
-	@OneToMany(cascade = ALL, mappedBy = "boxentity")
+	@OneToMany(cascade = ALL, mappedBy = "box")
 	public Collection<Messageentity> getMessages() {
 		return Messages;
 	}

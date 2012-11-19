@@ -21,24 +21,24 @@ import entity.Messageentity;
 @Stateless
 public class Box implements IBox {
 	
-	@PersistenceContext(unitName = "box1")
-	private EntityManager em;
+//	@PersistenceContext(unitName = "box1")
+//	private EntityManager em;
 	
 	public Box(){}
 	
 	@Override
 	public Collection<Messageentity> listAllMessages(int id) {
-		 try{
-			 
-			 Query q=em.createQuery("select b.Messages from Boxentity b where b.id= :id");
-			 q.setParameter("id", id);
-			 Collection<Messageentity> resultList = (Collection<Messageentity>)q.getResultList();
-			return resultList;
-			 
-		 } catch (NoResultException e) {
-				return null;
-		}
-	
+//		 try{
+//			 
+//			 Query q=em.createQuery("select b.Messages from Boxentity b where b.id= :id");
+//			 q.setParameter("id", id);
+//			 Collection<Messageentity> resultList = (Collection<Messageentity>)q.getResultList();
+//			return resultList;
+//			 
+//		 } catch (NoResultException e) {
+//				return null;
+//		}
+	return null;
 		// TODO Auto-generated method stub	
 	}
 

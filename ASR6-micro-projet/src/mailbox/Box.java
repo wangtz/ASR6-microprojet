@@ -21,13 +21,13 @@ public class Box implements IBox {
 	}
 
 	@Override
-	public Collection<Messageentity> listAllMessages(int Userid) {
+	public Collection<Messageentity> listAllMessages(int boxentityid) {
 
 		try {
 
 			Query q = em
 					.createQuery("select m from Messageentity m where m.boxentity= :id");
-			q.setParameter("id", Userid);
+			q.setParameter("id", boxentityid);
 			Collection<Messageentity> resultList = q.getResultList();
 			return resultList;
 
@@ -46,7 +46,10 @@ public class Box implements IBox {
 			Query q = em
 					.createQuery("select m from Messageentity m where m.messageid= :id");
 			q.setParameter("id", Messageid);
-			return (Messageentity) q.getResultList();
+			Messageentity message=(Messageentity)q.getSingleResult();
+			message.isAlreadyRead();
+			em.persist(message);
+			return (Messageentity) q.getSingleResult();
 
 		} catch (NoResultException e) {
 			return null;

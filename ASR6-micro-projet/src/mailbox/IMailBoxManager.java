@@ -1,29 +1,36 @@
 package mailbox;
 
+import java.util.Collection;
+import java.util.Collections;
+
 import javax.ejb.Remote;
 
 import directory.FinalUser;
+import entity.Messageentity;
+import entity.Userentity;
 
 
 
 @Remote public interface IMailBoxManager {
 
 	
-public void listAUserNewMessages();
+public Collection<Messageentity> listAUserNewMessages(int boxentityid);
 
-public void listAUserAllMessages();
+public Collection<Messageentity> listAUserAllMessages(int boxentityid);
 
-public void readAUserAMessage(Message msg);
+public Messageentity readAUserAMessage(int boxentityid,int messageid);
 
-public void deleteAUserAmessage(Message msg);
+public boolean deleteAUserAmessage(int boxentityid, int messageid);
 
-public void deleteAUserReadMessages();
+public boolean deleteAUserReadMessages(int boxentityid);
 
-public void sendAMessageToABox(Message msg);
+public boolean sendAMessageToABox(int boxentityid, String receiverName,
+		String sendingDate, String subject, String body, boolean alreadyRead);
 
-public void addUserMailbox(FinalUser user);
+public boolean addUserMailbox(Userentity user, String boxName);
 
-public void removeUserMailBox(FinalUser user);
+public boolean removeUserMailBox(Userentity user);
 
-public void sendNews(Message msg);
+public boolean sendNews(int boxentityid, String newsboxName,
+		String sendingDate, String subject, String body, boolean alreadyRead);
 }

@@ -22,6 +22,7 @@ public class MailBox extends Box implements IMailBox {
 			Query q = em
 					.createQuery("delete from Messageentity m where m.messageid= :id");
 			q.setParameter("id", messageid);
+			 q.executeUpdate();
 			return true;
 
 		} catch (NoResultException e) {
@@ -36,6 +37,7 @@ public class MailBox extends Box implements IMailBox {
 		try {
 			Query q = em
 					.createQuery("delete from Messageentity m where m.alreadyread=true");
+			 q.executeUpdate();
 			return true;
 
 		} catch (NoResultException e) {
@@ -49,6 +51,7 @@ public class MailBox extends Box implements IMailBox {
 		try {
 			Query q = em
 					.createQuery("delete from Messageentity m ");
+			 q.executeUpdate();
 			return true;
 
 		} catch (NoResultException e) {
@@ -61,7 +64,7 @@ public class MailBox extends Box implements IMailBox {
 	public Collection<Messageentity> liestNewMessages() {
 		try {
 			Query q = em
-					.createQuery("delete from Messageentity m where m.alreadyread=false");
+					.createQuery("select m from Messageentity m where m.alreadyread=false");
 			Collection<Messageentity> resultList = q.getResultList();
 			return resultList;
 

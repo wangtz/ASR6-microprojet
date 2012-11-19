@@ -11,9 +11,10 @@ public interface IBox {
     
 	public Collection<Messageentity> listAllMessages(int id);
 	
-	public void readAMessage(Messageentity msg);
+	public Messageentity readAMessage(int id);
 	
-	public void addMessage(Messageentity msg);
+	public int addMessage(int id,String senderName, String receiverName,String sendingDate, String subject, String body, boolean alreadyRead);
+
 	
 	
 }

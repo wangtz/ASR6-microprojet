@@ -4,7 +4,7 @@
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. -->
-<project basedir="." default="build" name="ASR6-micro-projet">
+<project basedir="." default="build" name="uv6">
 	<property environment="env" />
 	<property name="debuglevel" value="source,lines,vars" />
 	<property name="target" value="1.7" />
@@ -27,7 +27,6 @@
 
 	<target name="init">
 		<!-- Create the build directory structure -->
-		<mkdir dir="bin" />
 	</target>
 
 	<target name="all">
@@ -44,20 +43,20 @@
 	</target>
 
 	<target name="build-entity" description="Build entity beans">
-		<javac classpath="${glassfish.home}/lib/javaee.jar" srcdir="src/entity" destdir="bin/" includes="*.java" />
+		<javac classpath="${glassfish.home}/lib/javaee.jar" srcdir="src/entity" destdir="." includes="*.java" />
 	</target>
 
 	<target name="build-ejb" description="Build ejb jar">
-		<javac classpath="${glassfish.home}/lib/javaee.jar:./entities.jar" srcdir="src/directory" destdir="bin/" includes="*.java" />
-		<javac classpath="${glassfish.home}/lib/javaee.jar:./entities.jar" srcdir="src/mailbox" destdir="bin/" includes="*.java" />
+		<javac classpath="${glassfish.home}/lib/javaee.jar:./entities.jar" srcdir="src/directory" destdir="." includes="*.java" />
+		<javac classpath="${glassfish.home}/lib/javaee.jar:./entities.jar" srcdir="src/mailbox" destdir="." includes="*.java" />
 	</target>
 
 	<target name="build-client-mailbox" description="Build client jar">
-		<javac classpath="${glassfish.home}/lib/javaee.jar" srcdir="src/application" destdir="bin/" includes="MailboxApplication.java" />
+		<javac classpath="${glassfish.home}/lib/javaee.jar" srcdir="src/application" destdir="." includes="MailboxApplication.java" />
 	</target>
 
 	<target name="build-jar" description="Build jar archive">
-		<jar destfile="services.jar" basedir="." includes="META-INF/persistence.xml,bin/**/*.class" />
+		<jar destfile="services.jar" basedir="." includes="META-INF/persistence.xml,application/*.class,directory/*.class,entity/*.class,mailbox/*.class" />
 	</target>
 
 	<target name="deploy" description="deploy">

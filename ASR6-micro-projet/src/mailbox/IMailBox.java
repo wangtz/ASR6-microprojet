@@ -1,17 +1,21 @@
 package mailbox;
 
+import java.util.Collection;
+
 import javax.ejb.Remote;
+
+import entity.Messageentity;
 
 
 @Remote
 public interface IMailBox {
 
-	public void deleteAMessage(Message msg);
+	public boolean deleteAMessage(int messageid);
 
-	public void deleteReadMessages();
+	public boolean deleteReadMessages();
 	
-	public void deleteAllMessage();
+	public boolean deleteAllMessage();
 	
-	public void liestNewMessages();
+	public Collection<Messageentity> liestNewMessages();
 
 }

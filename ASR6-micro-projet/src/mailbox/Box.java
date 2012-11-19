@@ -44,7 +44,7 @@ public class Box implements IBox {
 		// TODO Auto-generated method stub
 		try {
 			Query q = em
-					.createQuery("select m from Messageentity m where m.id= :id");
+					.createQuery("select m from Messageentity m where m.messageid= :id");
 			q.setParameter("id", Messageid);
 			return (Messageentity) q.getResultList();
 

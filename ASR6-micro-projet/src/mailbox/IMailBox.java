@@ -1,5 +1,9 @@
 package mailbox;
 
+import javax.ejb.Remote;
+
+
+@Remote
 public interface IMailBox {
 
 	public void deleteAMessage(Message msg);

@@ -1,7 +1,10 @@
 package mailbox;
 
+import javax.ejb.Remote;
+
 import directory.FinalUser;
 
+@Remote
 public interface IMailBoxManager {
 	
 public void listAUserNewMessages();

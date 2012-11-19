@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="ASR6-micro-projet">
+	<property environment="env" />
+	<property name="debuglevel" value="source,lines,vars" />
+	<property name="target" value="1.7" />
+	<property name="source" value="1.7" />
+	<path id="ASR6-micro-projet.classpath">
+		<pathelement location="bin" />
+		<pathelement location="../../../appServ/glassfish3/glassfish/lib/jndi-properties.jar" />
+		<pathelement location="../../../appServ/glassfish3/glassfish/lib/javaee.jar" />
+		<pathelement location="../../../appServ/glassfish3/glassfish/lib/appserv-rt.jar" />
+		<pathelement location="../../../appServ/glassfish3/glassfish/lib/javahelp.jar" />
+		<pathelement location="../../../appServ/glassfish3/glassfish/lib/upgrade-tool.jar" />
+		<pathelement location="../../../appServ/glassfish3/glassfish/lib/gf-client.jar" />
+		<pathelement location="../../../appServ/glassfish3/glassfish/lib/mysql-connector-java-5.1.18-bin.jar" />
+	</path>
+
+	<property name="glassfish.home" value="${env.GLASSFISH_HOME}" />
+	<property name="entity" value="entity" />
+	<property name="ejb" value="ejb" />
+	<property name="client" value="client" />
+
+	<target name="init">
+		<!-- Create the build directory structure -->
+		<mkdir dir="bin" />
+	</target>
+
+	<target name="all">
+		<antcall target="clean" />
+		<antcall target="build" />
+		<antcall target="deploy" />
+	</target>
+
+	<target name="build" description="build" depends="init">
+		<antcall target="build-entity" />
+		<antcall target="build-ejb" />
+		<antcall target="build-client-mailbox" />
+		<antcall target="build-jar" />
+	</target>
+
+	<target name="build-entity" description="Build entity beans">
+		<javac classpath="${glassfish.home}/lib/javaee.jar" srcdir="src/entity" destdir="bin/" includes="*.java" />
+	</target>
+
+	<target name="build-ejb" description="Build ejb jar">
+		<javac classpath="${glassfish.home}/lib/javaee.jar:./entities.jar" srcdir="src/directory" destdir="bin/" includes="*.java" />
+		<javac classpath="${glassfish.home}/lib/javaee.jar:./entities.jar" srcdir="src/mailbox" destdir="bin/" includes="*.java" />
+	</target>
+
+	<target name="build-client-mailbox" description="Build client jar">
+		<javac classpath="${glassfish.home}/lib/javaee.jar" srcdir="src/application" destdir="bin/" includes="MailboxApplication.java" />
+	</target>
+
+	<target name="build-jar" description="Build jar archive">
+		<jar destfile="services.jar" basedir="." includes="META-INF/persistence.xml,bin/**/*.class" />
+	</target>
+
+	<target name="deploy" description="deploy">
+		<exec executable="${glassfish.home}/bin/asadmin" failonerror="true" vmlauncher="false">
+			<arg line="deploy --retrieve . services.jar" />
+		</exec>
+	</target>
+
+	<target name="undeploy" description="undeploy">
+		<exec executable="${glassfish.home}/bin/asadmin" failonerror="true" vmlauncher="false">
+			<arg line="undeploy services" />
+		</exec>
+	</target>
+
+
+</project>

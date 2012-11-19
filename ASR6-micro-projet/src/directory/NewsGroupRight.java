@@ -2,8 +2,6 @@ package directory;
 
 public class NewsGroupRight {
 
-	private boolean readNewsGroup;
-	private boolean writeNewsGroup;
 
 	public void getReadAccess() {
 	}

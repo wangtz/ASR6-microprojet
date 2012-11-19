@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 import entity.MailBoxentity;
 import entity.Userentity;
 
-@Stateless(name = "uv6/filldata")
+@Stateless(name = "filldata")
 public class FillDataServer implements IFillDataServer {
 
 	@PersistenceContext(unitName = "pu1")

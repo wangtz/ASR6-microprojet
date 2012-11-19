@@ -1,5 +1,6 @@
 package entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -60,6 +61,7 @@ public class Messageentity {
 		this.subject = subject;
 	}
 
+	@Column(length=10000)
 	public String getBody() {
 		return body;
 	}

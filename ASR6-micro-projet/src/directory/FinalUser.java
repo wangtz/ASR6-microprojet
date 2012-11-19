@@ -11,9 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.PersistenceContext;
 
-import mailbox.MailBox;
-
-
 public class FinalUser {
 
 	public String getUserRight(String userID) {

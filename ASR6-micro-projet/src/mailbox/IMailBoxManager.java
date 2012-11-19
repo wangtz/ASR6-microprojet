@@ -4,8 +4,9 @@ import javax.ejb.Remote;
 
 import directory.FinalUser;
 
-@Remote
-public interface IMailBoxManager {
+
+@Remote public interface IMailBoxManager {
+
 	
 public void listAUserNewMessages();
 

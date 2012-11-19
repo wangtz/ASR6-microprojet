@@ -1,8 +1,16 @@
 package mailbox;
 
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import directory.FinalUser;
 
-public class MailBoxManager implements IMailBoxManager {
+@Stateless(name="uv6/mailbox")
+public class IMailBoxManagerBean implements IMailBoxManager {
+
+    @PersistenceContext(unitName="pu1")
+    private EntityManager em;
 
 	@Override
 	public void listAUserNewMessages() {

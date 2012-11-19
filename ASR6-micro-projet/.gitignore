@@ -1,3 +1,8 @@
 build
 bin
 .metadata
+/application
+/directory
+/entity
+/mailbox
+/services.jar

@@ -2,7 +2,6 @@ package directory;
 
 public class NewsGroupRight {
 
-
 	public void getReadAccess() {
 	}
 

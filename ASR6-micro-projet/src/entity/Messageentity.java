@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-
 @Entity
 public class Messageentity {
 	private int messageID;
@@ -16,77 +15,75 @@ public class Messageentity {
 	private String sendingDate;
 	private String subject;
 	private String body;
-	private boolean alreadyRead=false;
-    private Boxentity box;
-    
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)	
-    	public int getMessageID() {
-    		return messageID;
-    	}
+	private boolean alreadyRead = false;
+	private Boxentity box;
 
-    	public void setMessageID(int messageID) {
-    		this.messageID = messageID;
-    	}
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public int getMessageID() {
+		return messageID;
+	}
 
-    	public String getSenderName() {
-    		return senderName;
-    	}
+	public void setMessageID(int messageID) {
+		this.messageID = messageID;
+	}
 
-    	public void setSenderName(String senderName) {
-    		this.senderName = senderName;
-    	}
+	public String getSenderName() {
+		return senderName;
+	}
 
-    	public String getReceiverName() {
-    		return receiverName;
-    	}
+	public void setSenderName(String senderName) {
+		this.senderName = senderName;
+	}
 
-    	public void setReceiverName(String receiverName) {
-    		this.receiverName = receiverName;
-    	}
+	public String getReceiverName() {
+		return receiverName;
+	}
 
-    	public String getSendingDate() {
-    		return sendingDate;
-    	}
+	public void setReceiverName(String receiverName) {
+		this.receiverName = receiverName;
+	}
 
-    	public void setSendingDate(String sendingDate) {
-    		this.sendingDate = sendingDate;
-    	}
+	public String getSendingDate() {
+		return sendingDate;
+	}
 
-    	public String getSubject() {
-    		return subject;
-    	}
+	public void setSendingDate(String sendingDate) {
+		this.sendingDate = sendingDate;
+	}
 
-    	public void setSubject(String subject) {
-    		this.subject = subject;
-    	}
+	public String getSubject() {
+		return subject;
+	}
 
-    	public String getBody() {
-    		return body;
-    	}
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
 
-    	public void setBody(String body) {
-    		this.body = body;
-    	}
+	public String getBody() {
+		return body;
+	}
 
-    	public boolean isAlreadyRead() {
-    		return alreadyRead;
-    	}
+	public void setBody(String body) {
+		this.body = body;
+	}
 
-    	public void setAlreadyRead(boolean alreadyRead) {
-    		this.alreadyRead = alreadyRead;
-    	}
+	public boolean isAlreadyRead() {
+		return alreadyRead;
+	}
 
-    	@ManyToOne
-    	@JoinColumn(name="boxentity")
-    	public Boxentity getBox() {
-    		return box;
-    	}
+	public void setAlreadyRead(boolean alreadyRead) {
+		this.alreadyRead = alreadyRead;
+	}
 
-    	public void setBox(Boxentity box) {
-    		this.box = box;
-    	}
-    
-    
-    
+	@ManyToOne
+	@JoinColumn(name = "boxentity")
+	public Boxentity getBox() {
+		return box;
+	}
+
+	public void setBox(Boxentity box) {
+		this.box = box;
+	}
+
 }

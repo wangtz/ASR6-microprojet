@@ -6,8 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-
 @Entity
+
 public class MailBoxentity extends Boxentity{
    private Userentity user;
    
@@ -17,10 +17,9 @@ public class MailBoxentity extends Boxentity{
    		return user;
    	}
 
-   	public void setUser(Userentity user) {
-   		this.user = user;
-   	}
-   
-   
-   
+
+	public void setUser(Userentity user) {
+		this.user = user;
+	}
+
 }

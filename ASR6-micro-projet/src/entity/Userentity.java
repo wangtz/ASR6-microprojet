@@ -1,6 +1,5 @@
 package entity;
 
-
 import static javax.persistence.CascadeType.ALL;
 
 import javax.persistence.Entity;
@@ -15,10 +14,10 @@ public class Userentity {
 	private int userID;
 	private String userName;
 	private NewsGroupRightentity right;
-    private MailBoxentity mailbox;
-    
-    @Id
-	@GeneratedValue(strategy=GenerationType.AUTO)  
+	private MailBoxentity mailbox;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public int getUserID() {
 		return userID;
 	}
@@ -34,6 +33,7 @@ public class Userentity {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+
 	@OneToOne(cascade = ALL)// mappedBy = "user"
 	@JoinColumn(name = "newsgrouprightentity")
 	public NewsGroupRightentity getRight() {
@@ -53,5 +53,5 @@ public class Userentity {
 	public void setMailbox(MailBoxentity mailbox) {
 		this.mailbox = mailbox;
 	}
-    
+
 }

@@ -21,7 +21,7 @@ public class IMailBoxManagerBean implements IMailBoxManager {
 	@Override
 	public void listAUserAllMessages() {
 		// TODO Auto-generated method stub
-		
+		 
 	}
 
 	@Override

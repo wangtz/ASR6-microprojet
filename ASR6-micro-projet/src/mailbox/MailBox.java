@@ -1,11 +1,5 @@
 package mailbox;
 
-import static javax.persistence.CascadeType.ALL;
-
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-
-import directory.FinalUser;
 
 
 public class MailBox extends Box implements IMailBox {

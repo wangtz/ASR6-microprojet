@@ -10,15 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import mailbox.MailBox;
-import directory.NewsGroupRight;
-
-
 @Entity
 public class Userentity {
 	private int userID;
 	private String userName;
-	private NewsGroupRight right;
+	private NewsGroupRightentity right;
     private MailBoxentity mailbox;
     
     @Id
@@ -40,11 +36,11 @@ public class Userentity {
 	}
 	@OneToOne(cascade = ALL, mappedBy = "userentity")
 	@JoinColumn(name = "rightentity_id")
-	public NewsGroupRight getRight() {
+	public NewsGroupRightentity getRight() {
 		return right;
 	}
 
-	public void setRight(NewsGroupRight right) {
+	public void setRight(NewsGroupRightentity right) {
 		this.right = right;
 	}
 

@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import directory.FinalUser;
 
 @Entity
 public class MailBoxentity {

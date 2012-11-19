@@ -12,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.OneToMany;
 
-import mailbox.Message;
 
 @Entity
 //@Inheritance(strategy=InheritanceType.SINGLE_TABLE)

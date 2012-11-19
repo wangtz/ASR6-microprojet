@@ -4,13 +4,24 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+import mailbox.IFillDataServer;
+import mailbox.IMailBoxManager;
+
 public class MailboxApplication {
 
+	private static IMailBoxManager mailboxManager = null;
+	
 	/**
 	 * @param args
+	 * @throws NamingException 
 	 */
-	public static void main(String[] args) {
-
+	public static void main(String[] args) throws NamingException {
+		InitialContext ic = new InitialContext();
+		mailboxManager = (IMailBoxManager) ic.lookup("mailbox.IMailBoxManager");
+		
 		displayLineBreak();
 
 		displayAllMessages();
@@ -98,6 +109,8 @@ public class MailboxApplication {
 	private static void displayAllMessages() {
 		System.out.println("All messages:");
 		int i;
+		
+		mailboxManager.listAUserAllMessages();
 		for (i = 0; Math.random() > 0.2; i++) {
 			char isNew;
 			int msgId;

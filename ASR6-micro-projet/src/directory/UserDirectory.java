@@ -26,17 +26,24 @@ public class UserDirectory implements IUserDirectory {
 //ÐèÒª¿¼¾¿	
 	public void addUser(String username,String boxname) {
 	Userentity user=new Userentity();
-//	MailBoxentity mailboxentity=new MailBoxentity();
+	MailBoxentity newbox = new MailBoxentity();
 	NewsGroupRightentity nentity=new NewsGroupRightentity();
+	
+	
 	user.setUserName(username);
 	nentity.setReadNewsGroup(false);
 	nentity.setWriteNewsGroup(false);
+	newbox.setBoxName(boxname);
 	
 	user.setRight(nentity);
 	nentity.setUser(user);
+	newbox.setUser(user);
+	user.setMailbox(newbox);
+	
 	em.persist(nentity);
 	em.persist(user);
-	mailbox.addUserMailbox(user, boxname);
+	em.persist(newbox);
+//	mailbox.addUserMailbox(user, boxname);
 	
 
 	}

@@ -7,3 +7,4 @@ bin
 /mailbox
 /services.jar
 /META-INF
+/.classpath

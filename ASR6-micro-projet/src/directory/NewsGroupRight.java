@@ -51,7 +51,7 @@ public class NewsGroupRight {
 		em.persist(n);
 	}
 
-	private NewsGroupRightentity findentityByid(int newsgraouprightid)
+	public NewsGroupRightentity findentityByid(int newsgraouprightid)
 	{
 		
 		Query q = em

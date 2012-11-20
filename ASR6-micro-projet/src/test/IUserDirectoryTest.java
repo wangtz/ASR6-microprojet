@@ -53,16 +53,16 @@ public class IUserDirectoryTest {
 		Collection<Userentity> allUsers = userDirectory.lookupAllUsers();
 		userDirectory.addUser(username, username + "'s mailbox");
 
-		assertEquals(userDirectory.lookupAllUsers().size(), allUsers.size()+1);
+		assertEquals(userDirectory.lookupAllUsers().size(), allUsers.size() + 1);
 	}
 
 	@Test
 	public void testLookupAUserRight() {
-		String username = "Dongdong2";
-		userDirectory.addUser(username, username + "'s mailbox");
+		String username = "dongdong2";
+		userDirectory.addUser(username, username + "@google.com");
 
 		// TODO? updateRights
 		Collection<Userentity> allUsers = userDirectory.lookupAllUsers();
-		assertEquals(userDirectory.lookupAllUsers().size(), allUsers.size()+1);
+		assertEquals(userDirectory.lookupAllUsers().size(), allUsers.size() + 1);
 	}
 }

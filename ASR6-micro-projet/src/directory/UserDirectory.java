@@ -85,11 +85,13 @@ public class UserDirectory implements IUserDirectory {
 	}
 
 	@Override
-	public void updateRights(int userid) {
+	public void updateRights(int userid,String whichright,boolean change) {
 		// TODO Auto-generated method stub
      Userentity user=this.finduserByid(userid);
-     NewsGroupRightentity nentity=n.findentityByid(user.getRight().getRightID());
-    user.setRight(nentity);
+     if(whichright=="WriteAccess"&&change==true) n.setWriteAccess(user.getRight().getRightID());
+     else if(whichright=="WriteAccess"&&change==false) n.unsetWriteAccess(user.getRight().getRightID());
+     else if(whichright=="ReadAccess"&&change==true)n.setReadAccess(user.getRight().getRightID());
+     else  n.unsetReadAccess(user.getRight().getRightID());
 	}
 	private Userentity finduserByid(int userid)
 	{

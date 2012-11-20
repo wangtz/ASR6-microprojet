@@ -51,9 +51,9 @@ public class IMailBoxManagerBean implements IMailBoxManager {
 					.createQuery("select m from Messageentity m where m.messageid= :messageid and m.boxentity= :boxentityid");
 			q.setParameter("messageid", messageid);
 			q.setParameter("boxentityid", boxentityid);
-           Messageentity message=(Messageentity)q.getSingleResult();
-           message.isAlreadyRead();
-           em.persist(message);
+			Messageentity message = (Messageentity) q.getSingleResult();
+			message.isAlreadyRead();
+			em.persist(message);
 			return (Messageentity) q.getSingleResult();
 
 		} catch (NoResultException e) {
@@ -145,17 +145,25 @@ public class IMailBoxManagerBean implements IMailBoxManager {
 			return false;
 		}
 
-
 	}
 
 	@Override
 	public boolean sendNews(int boxentityid, String newsboxName,
 			String sendingDate, String subject, String body, boolean alreadyRead) {
 		
-		if(this.sendAMessageToABox(boxentityid, newsboxName, sendingDate, subject, body, alreadyRead))return true;
-		else return false;
-		
-	
+
+			Query q = em
+					.createQuery("select u from Userentity u where u.mailboxentity= :id");
+			q.setParameter("boxentityid", boxentityid);
+           Userentity user=(Userentity)q.getSingleResult();
+           
+           if(user.getRight().isWriteNewsGroup() )
+   		{
+   			this.sendAMessageToABox(boxentityid, newsboxName, sendingDate, subject, body, alreadyRead);
+   		
+   		 return true;}
+         return false;
+
 	}
 
 	private Boxentity findBoxentityByid(int id) {

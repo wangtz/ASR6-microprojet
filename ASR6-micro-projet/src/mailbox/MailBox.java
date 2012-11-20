@@ -2,6 +2,7 @@ package mailbox;
 
 import java.util.Collection;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -10,7 +11,7 @@ import javax.persistence.Query;
 import entity.Messageentity;
 
 
-
+@Stateless
 public class MailBox extends Box implements IMailBox {
 	
 	@PersistenceContext(unitName = "pu1")

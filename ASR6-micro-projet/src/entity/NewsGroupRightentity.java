@@ -12,18 +12,18 @@ import javax.persistence.OneToOne;
 @Entity
 public class NewsGroupRightentity {
 
-	private String RightID;
+	private int RightID;
 	private boolean readNewsGroup;
 	private boolean writeNewsGroup;
 	private Userentity user;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public String getRightID() {
+	public int getRightID() {
 		return RightID;
 	}
 
-	public void setRightID(String rightID) {
+	public void setRightID(int rightID) {
 		RightID = rightID;
 	}
 

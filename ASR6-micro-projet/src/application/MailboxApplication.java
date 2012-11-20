@@ -110,7 +110,7 @@ public class MailboxApplication {
 		System.out.println("All messages:");
 		int i;
 		
-		mailboxManager.listAUserAllMessages();
+	//	mailboxManager.listAUserAllMessages();
 		for (i = 0; Math.random() > 0.2; i++) {
 			char isNew;
 			int msgId;

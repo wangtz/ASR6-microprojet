@@ -1,7 +1,9 @@
 package mailbox;
 
-import entity.Messageentity;
+import javax.ejb.Stateless;
 
+import entity.Messageentity;
+@Stateless
 public class Message {
 
 	public void setIsRead(Messageentity message) {

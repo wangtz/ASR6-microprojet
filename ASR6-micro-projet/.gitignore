@@ -8,3 +8,4 @@ bin
 /services.jar
 /META-INF
 /.classpath
+/META-INF/persistence.xml

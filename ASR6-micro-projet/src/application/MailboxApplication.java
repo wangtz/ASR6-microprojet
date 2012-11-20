@@ -22,6 +22,9 @@ public class MailboxApplication {
 		InitialContext ic = new InitialContext();
 		mailboxManager = (IMailBoxManager) ic.lookup("mailbox.IMailBox");
 		
+		MailboxApplication app = new MailboxApplication();
+		app.getUserName();
+		
 		displayLineBreak();
 
 		displayAllMessages();
@@ -31,6 +34,16 @@ public class MailboxApplication {
 			executeNextCommand();
 		}
 
+	}
+	
+	public void MailboxApplication()
+	{
+		
+	}
+
+	private String getUserName() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	private static void executeNextCommand() {

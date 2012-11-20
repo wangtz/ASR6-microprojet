@@ -33,6 +33,8 @@ public class MailBoxTest {
 	public void setUp() throws Exception {
 		InitialContext ic = new InitialContext();
 		mailbox = (IMailBox) ic.lookup("mailbox.IMailBox");
+		
+		mailbox.
 		box = (IBox) ic.lookup("mailbox.IBox");
 		
 	}

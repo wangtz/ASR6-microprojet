@@ -100,5 +100,16 @@ public class UserDirectory implements IUserDirectory {
 	  return (Userentity) q.getSingleResult();
 		
 	}
+    public Userentity finduserByname(String username)
+	{
+		
+		Query q = em
+				.createQuery("select u from userentity u where u.username= :name");
+		q.setParameter("name", username);
+	  return (Userentity) q.getSingleResult();
+		
+	}
+	
+	
 
 }

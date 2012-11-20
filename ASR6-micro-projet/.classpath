@@ -9,5 +9,6 @@
 	<classpathentry kind="lib" path="C:/appServ/glassfish3/glassfish/lib/jndi-properties.jar"/>
 	<classpathentry kind="lib" path="C:/appServ/glassfish3/glassfish/lib/mysql-connector-java-5.1.18-bin.jar"/>
 	<classpathentry kind="lib" path="C:/appServ/glassfish3/glassfish/lib/upgrade-tool.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

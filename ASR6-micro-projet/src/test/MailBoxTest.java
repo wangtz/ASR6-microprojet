@@ -34,6 +34,7 @@ public class MailBoxTest {
 		InitialContext ic = new InitialContext();
 		mailbox = (IMailBox) ic.lookup("mailbox.IMailBox");
 		box = (IBox) ic.lookup("mailbox.IBox");
+		
 	}
 
 	@After
@@ -42,6 +43,17 @@ public class MailBoxTest {
 
 	@Test
 	public final void testDeleteAMessage() {
+		int messageId = 3;
+		box.addMessage(messageId, "Ddongdong", "Tiezhen", "2012-11-02",
+				"hello", "body", false);
+		
+		Collection<Messageentity> allMsgs1 = box.listAllMessages(boxId);
+		assertEquals(allMsgs1.size() + 1, allMsgs1.size());
+
+		mailbox.deleteAMessage(messageId);
+
+		Collection<Messageentity> allMsgs2 = box.listAllMessages(boxId);
+		assertEquals(allMsgs1.size() + 1, allMsgs2.size());
 		fail("Pas encore implémenté"); // TODO
 	}
 
@@ -52,6 +64,11 @@ public class MailBoxTest {
 
 	@Test
 	public final void testDeleteAllMessage() {
+		int messageId = 4;
+		box.addMessage(messageId, "Ddongdong", "Tiezhen", "2012-11-02",
+				"hello", "body", false);
+		mailbox.deleteAllMessage();
+		
 		fail("Pas encore implémenté"); // TODO
 	}
 
@@ -82,7 +99,7 @@ public class MailBoxTest {
 
 	@Test
 	public final void testAddMessage() {
-		// why can't call method of box??
+		// why can't call method of box)??
 		assertEquals(box.addMessage(0, "Ddongdong", "Tiezhen", "2012-11-02",
 				"hello", "body", false), 1);
 	}

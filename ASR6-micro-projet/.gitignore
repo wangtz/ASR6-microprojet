@@ -6,3 +6,5 @@ bin
 /entity
 /mailbox
 /services.jar
+/META-INF
+/.classpath

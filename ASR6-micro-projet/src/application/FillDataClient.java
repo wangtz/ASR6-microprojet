@@ -1,7 +1,5 @@
 package application;
 
-
-
 import java.util.Properties;
 
 import javax.naming.Context;
@@ -20,8 +18,6 @@ public class FillDataClient {
 	 * @throws NamingException
 	 */
 	public static void main(String[] args) throws NamingException {
-		
-	
 //		// TODO Auto-generated method stub
 //		Properties props = new Properties();
 //		props.put(Context.INITIAL_CONTEXT_FACTORY,
@@ -29,7 +25,16 @@ public class FillDataClient {
 //		props.setProperty("org.omg.CORBA.ORBInitialHost", "127.0.0.1");
 //		props.setProperty("org.omg.CORBA.ORBInitialPort", "23700");
 //		
-		InitialContext ic = new InitialContext();
+
+
+		Properties props = new Properties();
+		props.put(Context.INITIAL_CONTEXT_FACTORY,
+				"com.sun.enterprise.naming.SerialInitContextFactory");
+		props.setProperty("org.omg.CORBA.ORBInitialHost", "127.0.0.1");
+		props.setProperty("org.omg.CORBA.ORBInitialPort", "3700");
+		
+		InitialContext ic = new InitialContext(props);
+
 		IFillDataServer sb = (IFillDataServer) ic
 				.lookup("mailbox.IFillDataServer");
 		System.out.println("lookup [OK]");

@@ -20,7 +20,7 @@ public class MailboxApplication {
 	 */
 	public static void main(String[] args) throws NamingException {
 		InitialContext ic = new InitialContext();
-		mailboxManager = (IMailBoxManager) ic.lookup("mailbox.IMailBoxManager");
+		mailboxManager = (IMailBoxManager) ic.lookup("mailbox.IMailBox");
 		
 		displayLineBreak();
 

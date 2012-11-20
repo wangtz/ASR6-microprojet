@@ -23,27 +23,20 @@ public class UserDirectory implements IUserDirectory {
 	
 	@Override
 	
-//ÐèÒª¿¼¾¿	
+//ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½	
 	public void addUser(String username,String boxname) {
 	Userentity user=new Userentity();
-	MailBoxentity newbox = new MailBoxentity();
+//	MailBoxentity mailboxentity=new MailBoxentity();
 	NewsGroupRightentity nentity=new NewsGroupRightentity();
-	
-	
 	user.setUserName(username);
 	nentity.setReadNewsGroup(false);
 	nentity.setWriteNewsGroup(false);
-	newbox.setBoxName(boxname);
 	
 	user.setRight(nentity);
 	nentity.setUser(user);
-	newbox.setUser(user);
-	user.setMailbox(newbox);
-	
 	em.persist(nentity);
 	em.persist(user);
-	em.persist(newbox);
-//	mailbox.addUserMailbox(user, boxname);
+	mailbox.addUserMailbox(user, boxname);
 	
 
 	}
@@ -102,16 +95,5 @@ public class UserDirectory implements IUserDirectory {
 	  return (Userentity) q.getSingleResult();
 		
 	}
-    public Userentity finduserByname(String username)
-	{
-		
-		Query q = em
-				.createQuery("select u from userentity u where u.username= :name");
-		q.setParameter("name", username);
-	  return (Userentity) q.getSingleResult();
-		
-	}
-	
-	
 
 }

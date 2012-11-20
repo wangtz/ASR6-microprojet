@@ -173,10 +173,10 @@ public class IMailBoxManagerBean implements IMailBoxManager {
 		return (Boxentity) q.getSingleResult();
 	}
 
-	public Boxentity findboxentityByname(String boxName) {
+	private Boxentity findboxentityByname(String receiverName) {
 		Query q = em
-				.createQuery("select b from Boxentity b where b.boxname = :boxName");
-		q.setParameter("boxName", boxName);
+				.createQuery("select b from Boxentity b where b.boxname = :receiverName");
+		q.setParameter("receiverName", receiverName);
 		return (Boxentity) q.getSingleResult();
 	}
 

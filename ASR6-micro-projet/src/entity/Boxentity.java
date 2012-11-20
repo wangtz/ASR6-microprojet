@@ -38,9 +38,6 @@ public class Boxentity {
 	}
 
 	@OneToMany(cascade = ALL, mappedBy = "box")
-
-
-	
 	public Collection<Messageentity> getMessages() {
 		return Messages;
 	}

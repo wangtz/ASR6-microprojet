@@ -50,6 +50,7 @@ public class UserDirectory implements IUserDirectory {
 	  
      em.remove(user);
      return true;
+     
    }
    else return false;
    }

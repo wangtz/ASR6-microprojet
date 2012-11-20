@@ -11,6 +11,7 @@ import javax.naming.NamingException;
 //import org.omg.CORBA.Context;<>
 
 import mailbox.IFillDataServer;
+import mailbox.IMailBoxManager;
 
 public class FillDataClient {
 
@@ -34,7 +35,10 @@ public class FillDataClient {
 		System.out.println("lookup [OK]");
 		
 		sb.fillData();
-		System.out.println("c'est la fin");
+		System.out.println("c'est la fin de fill data");
+		
+		
+		
 	}
 
 }

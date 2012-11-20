@@ -2,12 +2,15 @@ package directory;
 
 import java.util.Collection;
 
+import javax.ejb.Remote;
+
 import entity.NewsGroupRightentity;
 import entity.Userentity;
 
+@Remote
 public interface IUserDirectory {
 
-	public void addUser(String username,String boxname);
+	public void addUser(String username, String boxname);
 
 	public boolean removeUser(int userid);
 

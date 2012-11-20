@@ -24,13 +24,13 @@ public class FillDataServer implements IFillDataServer {
 	public void fillData() {
 		NewsBoxentity newsBox = new NewsBoxentity();
 		Messageentity msg;
-		
+
 		newsBox.setBoxName("newsbox");
-		
+
 		Userentity userReadOnly = createUserForNewsGroupReadOnly();
 		Userentity userAdmin = createUserAdmin();
 		msg = sendMessage(userReadOnly, userAdmin);
-		
+
 		msg = broadcast(newsBox, userAdmin);
 	}
 
@@ -45,10 +45,10 @@ public class FillDataServer implements IFillDataServer {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
 		msg.setSendingDate(dateFormat.format(date));
-		
+
 		em.persist(msg);
 		em.persist(newsBox);
-		
+
 		return msg;
 	}
 
@@ -65,7 +65,7 @@ public class FillDataServer implements IFillDataServer {
 		msg.setSendingDate(dateFormat.format(date));
 
 		to.getMailbox().getMessages().add(msg);
-		
+
 		em.persist(msg);
 		em.persist(to.getMailbox());
 		return msg;

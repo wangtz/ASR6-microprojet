@@ -3,6 +3,7 @@ package directory;
 import javax.ejb.Stateless;
 
 import entity.NewsGroupRightentity;
+import entity.Userentity;
 
 @Stateless
 public class FinalUser {
@@ -14,8 +15,9 @@ public class FinalUser {
 		return userdirectory.lookupAUserRight(userID);
 	}
 
-	public void updateUserRight(int userID) {
-		userdirectory.updateRights(userID);
+	public void updateUserRight(int userid,String whichright,boolean change) {
+	        userdirectory.updateRights(userid, whichright, change);
+		
 	}
 
 }

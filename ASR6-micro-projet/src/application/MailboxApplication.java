@@ -43,7 +43,7 @@ public class MailboxApplication {
 
 	private String getUserName() {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
 	private static void executeNextCommand() {

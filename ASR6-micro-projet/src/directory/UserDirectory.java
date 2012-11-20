@@ -86,7 +86,7 @@ public class UserDirectory implements IUserDirectory {
      else if(whichright=="ReadAccess"&&change==true)n.setReadAccess(user.getRight().getRightID());
      else  n.unsetReadAccess(user.getRight().getRightID());
 	}
-	private Userentity finduserByid(int userid)
+	public Userentity finduserByid(int userid)
 	{
 		
 		Query q = em
@@ -95,5 +95,17 @@ public class UserDirectory implements IUserDirectory {
 	  return (Userentity) q.getSingleResult();
 		
 	}
+	public Userentity finduserByid(String username)
+	{
+		
+		Query q = em
+				.createQuery("select u from userentity u where u.username= :username");
+		q.setParameter("username", username);
+	  return (Userentity) q.getSingleResult();
+		
+	}
+	
+	
+	
 
 }

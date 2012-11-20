@@ -19,4 +19,8 @@ public interface IUserDirectory {
 	public NewsGroupRightentity lookupAUserRight(int userid);
 
 	public void updateRights(int userid,String whichright,boolean change);
+	
+	public Userentity finduserByid(int userid);
+	
+	public Userentity finduserByid(String username);
 }

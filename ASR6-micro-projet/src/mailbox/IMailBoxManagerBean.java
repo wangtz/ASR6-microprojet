@@ -150,19 +150,19 @@ public class IMailBoxManagerBean implements IMailBoxManager {
 	@Override
 	public boolean sendNews(int boxentityid, String newsboxName,
 			String sendingDate, String subject, String body, boolean alreadyRead) {
-		
 
-			Query q = em
-					.createQuery("select u from Userentity u where u.mailboxentity= :id");
-			q.setParameter("boxentityid", boxentityid);
-           Userentity user=(Userentity)q.getSingleResult();
-           
-           if(user.getRight().isWriteNewsGroup() )
-   		{
-   			this.sendAMessageToABox(boxentityid, newsboxName, sendingDate, subject, body, alreadyRead);
-   		
-   		 return true;}
-         return false;
+		Query q = em
+				.createQuery("select u from Userentity u where u.mailboxentity= :id");
+		q.setParameter("boxentityid", boxentityid);
+		Userentity user = (Userentity) q.getSingleResult();
+
+		if (user.getRight().isWriteNewsGroup()) {
+			this.sendAMessageToABox(boxentityid, newsboxName, sendingDate,
+					subject, body, alreadyRead);
+
+			return true;
+		}
+		return false;
 
 	}
 

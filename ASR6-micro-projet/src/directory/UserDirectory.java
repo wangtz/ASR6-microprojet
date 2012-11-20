@@ -23,7 +23,7 @@ public class UserDirectory implements IUserDirectory {
 	
 	@Override
 	
-//ÐèÒª¿¼¾¿	
+//ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½	
 	public void addUser(String username,String boxname) {
 	Userentity user=new Userentity();
 //	MailBoxentity mailboxentity=new MailBoxentity();

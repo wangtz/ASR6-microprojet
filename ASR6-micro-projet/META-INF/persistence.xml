@@ -8,7 +8,7 @@
 		<properties>
                         <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
                         <property name="eclipselink.jdbc.url"
-				value="jdbc:mysql://localhost:3306/INF7321_1" />
+				value="jdbc:mysql://www-inf.it-sudparis.eu:3306/INF7321_1" />
 
 			<!-- EclipseLink should create the database schema automatically -->
 			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
